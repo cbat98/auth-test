@@ -227,9 +227,11 @@
       </svg>
       <h1>Hello {{ username }}!</h1>
       @if (loggedIn) {
-      <p>Congratulations! Your app is running. 🎉</p>
+        <p>Congratulations! You are logged in. 🎉</p>
+        <button mat-raised-button (click)="logOut()">Log Out</button>
       } @else {
-      <p>You're not logged in.</p>
+        <p>You're not logged in.</p>
+        <button mat-raised-button (click)="logIn()">Log In</button>
       }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
