@@ -225,8 +225,12 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello, {{ title }}</h1>
+      <h1>Hello {{ username }}!</h1>
+      @if (loggedIn) {
       <p>Congratulations! Your app is running. 🎉</p>
+      } @else {
+      <p>You're not logged in.</p>
+      }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
