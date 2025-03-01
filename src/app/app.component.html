@@ -225,7 +225,7 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello {{ user?.name ?? 'there' }}!</h1>
+      <h1>Hello {{ user?.given_name ?? 'there' }}!</h1>
       @if (loggedIn) {
         <p>Congratulations! You are logged in. 🎉</p>
         <p>{{user?.preferred_username}} : {{user?.email}}</p>
