@@ -228,11 +228,11 @@
       <h1>Hello {{ user?.name ?? 'there' }}!</h1>
       @if (loggedIn) {
         <p>Congratulations! You are logged in. 🎉</p>
-        <p>{{user?.preferred_nickname}} : {{user?.email}}</p>
+        <p>{{user?.preferred_username}} : {{user?.email}}</p>
         <button mat-raised-button (click)="logOut()">Log Out</button>
       } @else {
         <p>You're not logged in.</p>
-        <button mat-raised-button (click)="logIn()">Log In</button>
+        <button mat-raised-button [disabled]="loggingIn" (click)="logIn()">{{ loggingIn ? 'Waiting' : 'Log In' }}</button>
       }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>

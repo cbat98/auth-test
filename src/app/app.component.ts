@@ -12,6 +12,7 @@ import { User } from './user';
 })
 export class AppComponent {
   user?: User;
+  loggingIn: boolean = false;
   loggedIn: boolean = false;
 
   private readonly oidcSecurityService = inject(OidcSecurityService);
@@ -21,19 +22,21 @@ export class AppComponent {
       .checkAuth()
       .subscribe((loginResponse: LoginResponse) => {
         const { isAuthenticated, userData, accessToken, idToken, configId } = loginResponse;
+        this.loggingIn = false;
         this.loggedIn = isAuthenticated;
         if (isAuthenticated) {
           this.user = {
             email: userData.email,
             name: userData.name,
             given_name: userData.given_name,
-            preferred_nickname: userData.preferred_nickname,
+            preferred_username: userData.preferred_username,
           };
         }
       });
   }
 
   logIn() {
+    this.loggingIn = true;
     this.oidcSecurityService.authorize();
   }
 
