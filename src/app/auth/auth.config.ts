@@ -6,7 +6,7 @@ export const authConfig: PassedInitialConfig = {
               redirectUrl: window.location.origin,
               postLogoutRedirectUri: window.location.origin,
               clientId: 'dJoec3Wn8MXlQ4S2oTXayWKR59T4AwxQtLzFKRoD',
-              scope: 'openid', // 'openid profile offline_access ' + your scopes
+              scope: 'openid email profile', // 'openid profile offline_access ' + your scopes
               responseType: 'code',
               silentRenew: true,
               useRefreshToken: true,
